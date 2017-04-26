@@ -1,0 +1,16 @@
+<ul>
+  <% @user.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+</ul>
+<%= form_for @user do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+  <%= f.label :phone %>
+  <%= f.text_field :phone %>
+  <%= f.submit "Subscribe" %>
+<% end %>
