@@ -24,7 +24,6 @@ group :development, :test do
   gem 'launchy'
   gem 'simplecov', :require => false
   gem 'database_cleaner'
-  gem 'better_errors'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'shoulda-matchers'
@@ -32,6 +31,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'better_errors'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
