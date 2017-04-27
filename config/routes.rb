@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  resources :users, only: [:new, :create, :show]
+  root to: 'home#show'
+  resources :users, only: [:new, :create, :show, :update]
 end
