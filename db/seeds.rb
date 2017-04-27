@@ -10,10 +10,8 @@ module JokeParser
     doc = Nokogiri::HTML(File.open('db/sources/laffy_taffy.html'))
 
     doc.search('ol > li').map do |element|
-      joke = element.inner_text.strip.gsub(/^\d+\W\s/, "").downcase.capitalize.split("?")
-      question = "#{joke.first}?"
-      answer = joke.last.strip.gsub(/^\W */, "").capitalize
-      Joke.create!(question: question, answer: answer)
+      joke = element.inner_text.strip.downcase.capitalize.split("?")
+      Joke.create!(question: clean_question(joke), answer: clean_answer(joke))
     end
     puts "Parsed Laffy Taffy joke file"
   end
@@ -25,11 +23,17 @@ module JokeParser
       next if index == 0
       next if element.first_element_child != nil
       joke = element.inner_text.strip.split("?")
-      question = joke.first.gsub(/^\d+\W\s/, "")
-      answer = joke.last.strip.gsub(/^\W */, "")
-      Joke.create!(question: "#{question}?", answer: answer)
+      Joke.create!(question: clean_question(joke), answer: clean_answer(joke))
     end
     puts "Parsed Chartcons file"
+  end
+
+  def self.clean_question(joke)
+    joke.first.gsub(/^\d+\W\s/, "").concat("?")
+  end
+
+  def self.clean_answer(joke)
+    joke.last.strip.gsub(/^\W */, "").capitalize
   end
 end
 
