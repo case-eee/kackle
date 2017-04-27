@@ -29,6 +29,7 @@ group :development, :test do
   gem 'faker'
   gem 'shoulda-matchers'
   gem 'selenium-webdriver', '~> 2.53.4'
+  gem 'nokogiri'
 end
 
 group :development do
