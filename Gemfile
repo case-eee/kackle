@@ -17,6 +17,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'rails_12factor', group: :production
+gem 'twilio-ruby', '~> 4.11.1'
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -29,6 +31,7 @@ group :development, :test do
   gem 'faker'
   gem 'shoulda-matchers'
   gem 'selenium-webdriver', '~> 2.53.4'
+  gem 'nokogiri'
 end
 
 group :development do
