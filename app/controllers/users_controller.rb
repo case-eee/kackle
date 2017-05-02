@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      flash[:success] = "Successfully unsubscribed."
+      flash[:success] = "Successfully updated."
       redirect_to user_path(current_user)
     else
       flash[:error] = "There was a problem."

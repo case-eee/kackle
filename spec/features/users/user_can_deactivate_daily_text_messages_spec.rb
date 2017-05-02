@@ -10,7 +10,7 @@ feature 'Deactivating Daily Texts' do
       click_on "Unsubscribe"
 
       expect(current_path).to eq(user_path(user))
-      expect(page).to have_content("Successfully unsubscribed.")
+      expect(page).to have_content("Successfully updated.")
       expect(user.active).to eq(false)
     end
 
@@ -22,7 +22,7 @@ feature 'Deactivating Daily Texts' do
       click_on "Unsubscribe"
 
       expect(current_path).to eq(user_path(user1))
-      expect(page).to have_content("Successfully unsubscribed.")
+      expect(page).to have_content("Successfully updated.")
       expect(user1.active).to eq(false)
       expect(user2.active).to eq(true)
     end
