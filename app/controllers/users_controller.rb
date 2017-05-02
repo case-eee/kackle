@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Successfully subscribed!"
+      TwilioMessage.send(@user.phone)
       redirect_to user_path(@user)
     else
       render :new

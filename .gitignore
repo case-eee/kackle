@@ -43,5 +43,5 @@ bower.json
 # Ignore Byebug command history file.
 .byebug_history
 
-# Ignore temp files from Vim.
-*.swp
+# Ignore application configuration
+/config/application.yml
