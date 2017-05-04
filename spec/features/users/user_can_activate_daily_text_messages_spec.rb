@@ -10,7 +10,7 @@ feature 'Activating Daily Texts' do
       click_on "Subscribe"
 
       expect(current_path).to eq(user_path(user))
-      expect(page).to have_content("Successfully updated.")
+      expect(page).to have_content("Successfully subscribed!")
       expect(user.active).to eq(true)
     end
   end
