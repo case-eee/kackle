@@ -1,0 +1,9 @@
+production:
+  twilio_account_sid: twilio_sid
+  twilio_auth_token: twilio_auth
+  twilio_phone_number: 'your-twilio-number'
+
+test:
+  twilio_account_sid: twilio_test_sid
+  twilio_auth_token: twilio_test_auth
+  twilio_phone_number: '+15005550006'

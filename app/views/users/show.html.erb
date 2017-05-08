@@ -1,2 +1,7 @@
 <h1><%= @user.email %></h1>
 <p><%= @user.phone %></p>
+<% if current_user.active? %>
+  <p><%= link_to "Unsubscribe", user_path(current_user, user: {active: false}), method: :put %></p>
+<% else %>
+  <p><%= link_to "Subscribe", user_path(current_user, user: {active: true}), method: :put %></p>
+<% end %>
