@@ -3,7 +3,7 @@ class TwilioMessage
     client.messages.create(
       from: Figaro.env.twilio_phone_number,
       to: number,
-      body: "Placeholder for a joke!"
+      body: Joke.random.full
     )
   end
 
