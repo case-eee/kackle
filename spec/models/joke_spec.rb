@@ -10,5 +10,12 @@ describe Joke do
       expect(joke.full).to eq("What kind of car does Mickey Mouse's wife drive? A minnie van!")
     end
   end
+
+  describe ".random" do
+    it "returns a random Joke from the database" do
+      create_list(:joke, 2)
+      expect(Joke.random).to be_an_instance_of(Joke)
+    end
+  end
 end
 

@@ -5,4 +5,8 @@ class Joke < ApplicationRecord
   def full
     question + " " + answer
   end
+
+  def self.random
+    order("RANDOM()").sample
+  end
 end
