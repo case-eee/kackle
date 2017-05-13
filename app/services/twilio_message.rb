@@ -11,7 +11,7 @@ class TwilioMessage
     client.messages.create(
       from: Figaro.env.twilio_phone_number,
       to: number,
-      body: "Welcome to Kackle!"
+      body: "Welcome to Kackle! Respond with 'no' if you believe you received this message in error."
     )
   end
 
