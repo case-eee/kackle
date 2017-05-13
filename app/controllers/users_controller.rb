@@ -43,7 +43,6 @@ class UsersController < ApplicationController
       TwilioMessage.activate(current_user.phone)
     elsif params[:user][:active] && current_user.active == false
       flash[:success] = "Successfully unsubscribed."
-      TwilioMessage.deactivate(current_user.phone)
     end
   end
 end

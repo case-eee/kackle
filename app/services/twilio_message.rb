@@ -15,14 +15,6 @@ class TwilioMessage
     )
   end
 
-  def self.deactivate(number)
-    client.messages.create(
-      from: Figaro.env.twilio_phone_number,
-      to: number,
-      body: "Successfully unsubscribed."
-    )
-  end
-
   private
 
   def self.client
