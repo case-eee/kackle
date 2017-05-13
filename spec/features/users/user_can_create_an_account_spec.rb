@@ -13,7 +13,7 @@ describe 'When a user visits `/users/new`' do
 
       expect(page).to have_content('Successfully subscribed!')
       expect(page).to have_content('user@user.com')
-      expect(page).to have_content('500-400-3000')
+      expect(page).to have_content('5004003000')
       expect(User.count).to eq(1)
     end
   end

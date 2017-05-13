@@ -6,6 +6,6 @@ class Sms::UsersController < Sms::BaseController
       user.save
     end
 
-    render :nothing => true, :status => 200, :content_type => 'text/html'
+    head :ok
   end
 end
