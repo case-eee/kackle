@@ -1,9 +1,9 @@
 class TwilioMessage
-  def self.send(number)
+  def self.send(number, joke)
     client.messages.create(
       from: Figaro.env.twilio_phone_number,
       to: number,
-      body: Joke.random.full
+      body: joke
     )
   end
 

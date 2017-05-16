@@ -1,7 +1,9 @@
 namespace :twilio_message do
-  task :schedule => :environment do
+  task :send_joke => :environment do
     User.active?.each do |user|
-      TwilioMessage.send(user.phone)
+      joke = Joke.random(user)
+      TwilioMessage.send(user.phone, joke.full)
+      JokeUser.create(user: user, joke: joke)
     end
   end
 end
