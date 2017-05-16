@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427201357) do
+ActiveRecord::Schema.define(version: 20170516124702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "joke_users", force: :cascade do |t|
+    t.integer  "joke_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["joke_id"], name: "index_joke_users_on_joke_id", using: :btree
+    t.index ["user_id"], name: "index_joke_users_on_user_id", using: :btree
+  end
 
   create_table "jokes", force: :cascade do |t|
     t.string   "question"
@@ -29,4 +38,6 @@ ActiveRecord::Schema.define(version: 20170427201357) do
     t.boolean "active",          default: true
   end
 
+  add_foreign_key "joke_users", "jokes"
+  add_foreign_key "joke_users", "users"
 end

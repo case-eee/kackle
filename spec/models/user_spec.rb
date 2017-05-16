@@ -4,6 +4,8 @@ describe User do
   it {should validate_presence_of(:email)}
   it {should validate_presence_of(:phone)}
   it {should have_secure_password}
+  it {should have_many(:jokes)}
+  it {should have_many(:joke_users)}
 
   describe ".active?" do
     it "returns all the active users" do

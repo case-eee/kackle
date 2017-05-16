@@ -3,6 +3,8 @@ require 'rails_helper'
 describe Joke do
   it {should validate_presence_of(:question)}
   it {should validate_presence_of(:answer)}
+  it {should have_many(:users)}
+  it {should have_many(:joke_users)}
 
   describe "#full" do
     it "returns the question and answer concatenated" do
