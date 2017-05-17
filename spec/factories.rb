@@ -6,4 +6,9 @@ FactoryGirl.define do
     password_confirmation "pass"
     active true
   end
+
+  factory :joke do
+    question "What kind of car does Mickey Mouse's wife drive?"
+    answer "A minnie van!"
+  end
 end
