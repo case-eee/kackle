@@ -8,6 +8,16 @@ class User < ApplicationRecord
   scope :active?, -> { where(active: true) }
   before_save :clean_phone
 
+  def update_status(user_message)
+    if user_message.upcase[0..2] == "YES"
+      self.active = true
+      self.save
+    elsif user_message.upcase[0..1] == "NO" || user_message.upcase[0..10] == "UNSUBSCRIBE"
+      self.active = false
+      self.save
+    end
+  end
+
   private
   def clean_phone
     self.phone = self.phone.gsub(/[^0-9]/, "")
