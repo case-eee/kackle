@@ -45,5 +45,27 @@ describe 'POST /sms' do
       expect(user.active).to eq(false)
     end
   end
+
+  describe 'with a body of `yes`' do
+    it 'a user is activated' do
+      user =  create(:user, active: false)
+
+      post '/sms', params: {'Body': 'yes', 'From': '+15004003000'}
+
+      user.reload
+      expect(user.active).to eq(true)
+    end
+  end
+
+  describe 'with a body of `yEs`' do
+    it 'a user is activated' do
+      user =  create(:user, active: false)
+
+      post '/sms', params: {'Body': 'yEs', 'From': '+15004003000'}
+
+      user.reload
+      expect(user.active).to eq(true)
+    end
+  end
 end
 
