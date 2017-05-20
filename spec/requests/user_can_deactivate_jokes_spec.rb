@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-describe 'POST /messages/twilio/users' do
+describe 'POST /messaging/twilio/users' do
   describe 'with a body of `unsubscribe`' do
     it 'a user is deactivated' do
       user = create(:user)
 
-      post '/messages/twilio/users', params: {'Body': 'unsubscribe', 'From': '+15004003000'}
+      post '/messaging/twilio/users', params: {'Body': 'unsubscribe', 'From': '+15004003000'}
 
       user.reload
       expect(user.active).to eq(false)
@@ -16,7 +16,7 @@ describe 'POST /messages/twilio/users' do
     it 'a user is deactivated' do
       user = create(:user)
 
-      post '/messages/twilio/users', params: {'Body': 'no', 'From': '+15004003000'}
+      post '/messaging/twilio/users', params: {'Body': 'no', 'From': '+15004003000'}
 
       user.reload
       expect(user.active).to eq(false)
@@ -27,7 +27,7 @@ describe 'POST /messages/twilio/users' do
     it 'a user is deactivated' do
       user = create(:user)
 
-      post '/messages/twilio/users', params: {'Body': 'uNsUbSCribE', 'From': '+15004003000'}
+      post '/messaging/twilio/users', params: {'Body': 'uNsUbSCribE', 'From': '+15004003000'}
 
       user.reload
       expect(user.active).to eq(false)
@@ -39,7 +39,7 @@ describe 'POST /messages/twilio/users' do
     it 'a user is deactivated' do
       user = create(:user)
 
-      post '/messages/twilio/users', params: {'Body': 'nO', 'From': '+15004003000'}
+      post '/messaging/twilio/users', params: {'Body': 'nO', 'From': '+15004003000'}
 
       user.reload
       expect(user.active).to eq(false)
@@ -50,7 +50,7 @@ describe 'POST /messages/twilio/users' do
     it 'a user is activated' do
       user =  create(:user, active: false)
 
-      post '/messages/twilio/users', params: {'Body': 'yes', 'From': '+15004003000'}
+      post '/messaging/twilio/users', params: {'Body': 'yes', 'From': '+15004003000'}
 
       user.reload
       expect(user.active).to eq(true)
@@ -61,7 +61,7 @@ describe 'POST /messages/twilio/users' do
     it 'a user is activated' do
       user =  create(:user, active: false)
 
-      post '/messages/twilio/users', params: {'Body': 'yEs', 'From': '+15004003000'}
+      post '/messaging/twilio/users', params: {'Body': 'yEs', 'From': '+15004003000'}
 
       user.reload
       expect(user.active).to eq(true)
