@@ -11,15 +11,7 @@ class TwilioMessage
     client.messages.create(
       from: Figaro.env.twilio_phone_number,
       to: number,
-      body: "Welcome to Kackle!"
-    )
-  end
-
-  def self.deactivate(number)
-    client.messages.create(
-      from: Figaro.env.twilio_phone_number,
-      to: number,
-      body: "Successfully unsubscribed."
+      body: "Welcome to Kackle! Respond with 'yes' to confirm your subscription."
     )
   end
 

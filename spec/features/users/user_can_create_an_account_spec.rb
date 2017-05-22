@@ -11,10 +11,11 @@ describe 'When a user visits `/users/new`' do
       fill_in 'user[phone]', with: '500-400-3000'
       click_on 'Subscribe'
 
-      expect(page).to have_content('Successfully subscribed!')
+      expect(page).to have_content('Success!')
       expect(page).to have_content('user@user.com')
-      expect(page).to have_content('500-400-3000')
+      expect(page).to have_content('5004003000')
       expect(User.count).to eq(1)
+      expect(User.last.active).to eq(false)
     end
   end
 

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Successfully subscribed!"
+      flash[:success] = "Success!"
       session[:user_id] = @user.id
       TwilioMessage.activate(@user.phone)
       redirect_to user_path(@user)
@@ -43,7 +43,6 @@ class UsersController < ApplicationController
       TwilioMessage.activate(current_user.phone)
     elsif params[:user][:active] && current_user.active == false
       flash[:success] = "Successfully unsubscribed."
-      TwilioMessage.deactivate(current_user.phone)
     end
   end
 end
