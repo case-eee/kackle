@@ -12,4 +12,8 @@ class Joke < ApplicationRecord
     used = JokeUser.where(user: user).pluck(:joke_id)
     where.not(id: used).order("RANDOM()").first
   end
+
+  def self.random_display
+    order("RANDOM()").limit(1).first
+  end
 end
