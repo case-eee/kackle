@@ -6,14 +6,15 @@
 
     <div class="sample-joke">
       <div class="question">
-        <%= @joke.question %>
+        Q: <%= @joke.question %>
       </div>
 
       <div class="answer">
-        <%= @joke.answer %>
+        A: <%= @joke.answer %>
       </div>
     </div>
   </div>
 
-  <button class="sign-up">Sign up!</button>
+  <%= link_to "Sign Up!", new_user_path, class: "sign-up" %>
+
 </div>
